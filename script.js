@@ -606,7 +606,9 @@ const timeline = [
   ['Linux & Offensive Toolchain','Kali Linux and the broader Linux ecosystem as a daily driver for security work.','done'],
   ['Python Development','Scripts and full tools written from scratch, not tutorial copies.','done'],
   ['Applied Cybersecurity','OWASP Top 10, threat analysis, and security best practices applied in real builds.','done'],
+  ['Independent Security Training','Structured study of cyber threats, vulnerabilities, malware, phishing, and incident response via TryHackMe, Udemy, and hands-on labs.','done'],
   ['Building Security Tools','Network audit tools, vulnerability scanners, and monitoring dashboards, shipped.','active'],
+  ['Professional Experience','Working as an Assistant Account Officer (The Professionals Custom Clearing Agent, Karachi) while studying cybersecurity, Python, and Linux part-time.','active'],
   ['Freelancing','Taking on real client work under the Cyber Taqi brand.','active'],
   ['Current Projects','Eagle-AI, Eagle Vulnerability Oracle, and this portfolio.','active'],
   ['Future Goals','Formal certifications and deeper offensive/defensive specialization.','pending']
@@ -801,11 +803,6 @@ document.getElementById('contactForm').addEventListener('submit', function(e){
   this.reset();
 });
 
-/* ---------------- Resume button ---------------- */
-document.getElementById('resumeBtn').addEventListener('click', (e)=>{
-  e.preventDefault();
-  alert('Resume coming soon — add your PDF and link it here.');
-});
 
 /* ---------------- Burger (mobile) ---------------- */
 document.getElementById('burgerBtn').addEventListener('click', ()=>{
