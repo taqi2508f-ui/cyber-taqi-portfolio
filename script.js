@@ -506,53 +506,40 @@ document.getElementById('servicesGrid').innerHTML = services.map(([n,t,d])=>`
 /* ---------------- Data: Projects ---------------- */
 const projects = [
   {
-    name:'Network Security Audit Tool',
+    name:'CCIT — Cyber Crime Investigation Tool',
     tag:'ACTIVE',
-    desc:'A Python-based network security audit tool (network_audit.py) that scans and reports on a network\'s security posture, with a live GitHub Pages preview site.',
-    stack:['Python','Networking','GitHub Pages'],
-    features:['Automated network posture scanning','Companion documentation site','CYBER-TAQI branded reporting'],
-    github:'https://github.com/taqi2508f-ui/Network-Security-Audit-101',
-    demo:'https://taqi2508f-ui.github.io/Network-Security-Audit-101/'
-  },
-  {
-    name:'Eagle Vulnerability Oracle (FVO)',
-    tag:'IN DEV',
-    desc:'A custom vulnerability analysis tool with a Tkinter desktop GUI, running fully original scanning code paired with local AI-assisted analysis.',
-    stack:['Python','Tkinter','Ollama / Mistral'],
-    features:['Custom-built scanning engine (no external nmap dependency)','Local LLM-assisted vulnerability analysis','Cross-version Python compatibility fixes'],
-    github:'#', demo:'#'
-  },
-  {
-    name:'Security Monitor',
-    tag:'ACTIVE',
-    desc:'A PySide6 desktop security monitoring application with a full cyberpunk interface — animated backgrounds, matrix rain, and glassmorphism panels.',
+    desc:'A Python desktop cybersecurity suite with a dark neon hacker UI — phishing/URL scanning, email header & spoofing detection, static malware analysis, live network/DNS monitoring, and a YARA-like signature engine, all in one PySide6 app.',
     stack:['Python','PySide6','Desktop UI'],
-    features:['Animated matrix-rain background','Glow and glassmorphism effects','Modular window architecture'],
-    github:'#', demo:'#'
+    features:['Phishing URL & email spoofing detection (SPF/DKIM/DMARC)','Static malware analysis — entropy, PE sections, packers','YARA-like signature engine with a plugin system'],
+    github:'https://github.com/taqi2508f-ui/CCIT',
+    demo:'#'
   },
   {
-    name:'Eagle-AI',
-    tag:'IN DEV',
-    desc:'An autonomous multi-agent AI system built on PyQt6 with a local LLM backend and vector memory, designed for extensible task automation.',
-    stack:['Python','PyQt6','Ollama (llama3)','ChromaDB'],
-    features:['Multi-agent orchestration','Local-first AI (no paid API)','Animated splash screen with particle system'],
-    github:'#', demo:'#'
+    name:'FVO-ORACLE — Eagle Vulnerability Oracle',
+    tag:'ACTIVE',
+    desc:'A custom Python/Tkinter vulnerability scanner — a nmap-free, socket-based scanning engine paired with Groq\'s GPT-OSS 120B for AI-powered exploit and defense analysis.',
+    stack:['Python','Tkinter','Groq API (GPT-OSS 120B)'],
+    features:['Custom multi-threaded TCP scanner (no nmap dependency)','Signature-based CVE matching with severity ranking','AI exploit-chain analysis and hardening guidance'],
+    github:'https://github.com/taqi2508f-ui/FVO-ORACLE',
+    demo:'#'
   },
   {
     name:'EAGLE-SEC PRO',
-    tag:'CONCEPT',
-    desc:'A PyQt6 web security testing suite in the spirit of Burp Suite, built for inspecting and manipulating web traffic during authorized testing.',
+    tag:'ACTIVE',
+    desc:'A Burp Suite-style intercepting proxy for authorized web application security testing, built with PyQt6 for capturing, replaying, and diffing HTTP/HTTPS traffic.',
     stack:['Python','PyQt6','Proxy / Web Security'],
-    features:['Intercepting proxy workflow','Forward-request control','Cyberpunk "Apex Predator" UI theme'],
-    github:'#', demo:'#'
+    features:['HTTP/HTTPS intercepting proxy with CA certificate export','Repeater and response Comparer for manual testing','Recursive crawler with HTML/PDF/JSON reporting'],
+    github:'https://github.com/taqi2508f-ui/EAGLE-SEC-PRO-ENCHANCED',
+    demo:'#'
   },
   {
-    name:'CompTIA Security+ Academy',
+    name:'Network Security Audit Tool (NET-SCAN)',
     tag:'ACTIVE',
-    desc:'A single-file educational React platform covering the full Security+ (SY0-601) curriculum with quizzes, mock exams, flashcards, and labs.',
-    stack:['React','JavaScript','Education'],
-    features:['Full SY0-601 curriculum coverage','Mock exams and flashcards','Integrated AI study assistant'],
-    github:'#', demo:'#'
+    desc:'A dependency-free, single-file Python network auditor — discovers live hosts, scans 90+ commonly exploited ports, flags risky services against a CVE-aware risk database, and generates a firewall remediation cheatsheet in a full cyberpunk terminal UI.',
+    stack:['Python (stdlib only)','Terminal UI','Networking'],
+    features:['Multi-threaded host discovery and port scanning','CVE-aware vulnerability risk engine (CRITICAL–LOW)','Auto-generated firewall fixes + Excel/CSV/JSON export'],
+    github:'https://github.com/taqi2508f-ui/Network-Security-Audit-Tool',
+    demo:'https://taqi2508f-ui.github.io/Network-Security-Audit-101/'
   }
 ];
 function circuitSVG(seed){
@@ -579,7 +566,7 @@ document.getElementById('projectsGrid').innerHTML = projects.map(p=>`
       <ul class="feat-list">${p.features.map(f=>`<li>${f}</li>`).join('')}</ul>
       <div class="project-actions">
         <a href="${p.github}" target="_blank" rel="noopener" class="btn btn-sm">GitHub</a>
-        <a href="${p.demo}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Live Demo</a>
+        ${p.demo && p.demo !== '#' ? `<a href="${p.demo}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Live Demo</a>` : ''}
       </div>
     </div>
   </div>`).join('');
