@@ -503,43 +503,32 @@ document.getElementById('servicesGrid').innerHTML = services.map(([n,t,d])=>`
     <p>${d}</p>
   </div>`).join('');
 
-/* ---------------- Data: Projects ---------------- */
+/* ---------------- Data: Projects (mirrors GitHub repos) ---------------- */
 const projects = [
   {
-    name:'CCIT — Cyber Crime Investigation Tool',
-    tag:'ACTIVE',
-    desc:'A Python desktop cybersecurity suite with a dark neon hacker UI — phishing/URL scanning, email header & spoofing detection, static malware analysis, live network/DNS monitoring, and a YARA-like signature engine, all in one PySide6 app.',
-    stack:['Python','PySide6','Desktop UI'],
-    features:['Phishing URL & email spoofing detection (SPF/DKIM/DMARC)','Static malware analysis — entropy, PE sections, packers','YARA-like signature engine with a plugin system'],
-    github:'https://github.com/taqi2508f-ui/CCIT',
-    demo:'#'
+    name:'CCIT',
+    desc:'A Python desktop cybersecurity suite with a dark neon hacker UI — phishing/URL scanning, email header & spoofing detection, static malware analysis, live network/DNS monitoring, and a YARA-like signature engine.',
+    github:'https://github.com/taqi2508f-ui/CCIT'
   },
   {
-    name:'FVO-ORACLE — Eagle Vulnerability Oracle',
-    tag:'ACTIVE',
-    desc:'A custom Python/Tkinter vulnerability scanner — a nmap-free, socket-based scanning engine paired with Groq\'s GPT-OSS 120B for AI-powered exploit and defense analysis.',
-    stack:['Python','Tkinter','Groq API (GPT-OSS 120B)'],
-    features:['Custom multi-threaded TCP scanner (no nmap dependency)','Signature-based CVE matching with severity ranking','AI exploit-chain analysis and hardening guidance'],
-    github:'https://github.com/taqi2508f-ui/FVO-ORACLE',
-    demo:'#'
+    name:'FVO-ORACLE',
+    desc:'Eagle Vulnerability Oracle — a custom Python/Tkinter vulnerability scanner with a nmap-free, socket-based scanning engine and AI-powered exploit/defense analysis via Groq\'s GPT-OSS 120B.',
+    github:'https://github.com/taqi2508f-ui/FVO-ORACLE'
   },
   {
-    name:'EAGLE-SEC PRO',
-    tag:'ACTIVE',
-    desc:'A Burp Suite-style intercepting proxy for authorized web application security testing, built with PyQt6 for capturing, replaying, and diffing HTTP/HTTPS traffic.',
-    stack:['Python','PyQt6','Proxy / Web Security'],
-    features:['HTTP/HTTPS intercepting proxy with CA certificate export','Repeater and response Comparer for manual testing','Recursive crawler with HTML/PDF/JSON reporting'],
-    github:'https://github.com/taqi2508f-ui/EAGLE-SEC-PRO-ENCHANCED',
-    demo:'#'
+    name:'EAGLE-SEC-PRO-ENCHANCED',
+    desc:'A legitimate-looking pentesting tool — a Burp Suite–style intercepting proxy for authorized web application security testing.',
+    github:'https://github.com/taqi2508f-ui/EAGLE-SEC-PRO-ENCHANCED'
   },
   {
-    name:'Network Security Audit Tool (NET-SCAN)',
-    tag:'ACTIVE',
-    desc:'A dependency-free, single-file Python network auditor — discovers live hosts, scans 90+ commonly exploited ports, flags risky services against a CVE-aware risk database, and generates a firewall remediation cheatsheet in a full cyberpunk terminal UI.',
-    stack:['Python (stdlib only)','Terminal UI','Networking'],
-    features:['Multi-threaded host discovery and port scanning','CVE-aware vulnerability risk engine (CRITICAL–LOW)','Auto-generated firewall fixes + Excel/CSV/JSON export'],
-    github:'https://github.com/taqi2508f-ui/Network-Security-Audit-Tool',
-    demo:'https://taqi2508f-ui.github.io/Network-Security-Audit-101/'
+    name:'Network-Security-Audit-Tool',
+    desc:'This tool only scans networks, IP addresses, and open ports to surface vulnerabilities on systems you own or are explicitly authorized to test. Unauthorized scanning is illegal in most countries.',
+    github:'https://github.com/taqi2508f-ui/Network-Security-Audit-Tool'
+  },
+  {
+    name:'Network-Security-Audit-101',
+    desc:'Companion GitHub Pages site for the Network Security Audit Tool.',
+    github:'https://github.com/taqi2508f-ui/Network-Security-Audit-101'
   }
 ];
 function circuitSVG(seed){
@@ -558,15 +547,12 @@ function circuitSVG(seed){
 }
 document.getElementById('projectsGrid').innerHTML = projects.map(p=>`
   <div class="panel project-card reveal">
-    <div class="project-thumb">${circuitSVG(p.name)}<span class="mono">${p.name.toUpperCase()}</span><span class="badge">${p.tag}</span></div>
+    <div class="project-thumb">${circuitSVG(p.name)}<span class="mono">${p.name.toUpperCase()}</span></div>
     <div class="project-body">
       <h3>${p.name}</h3>
       <p>${p.desc}</p>
-      <div class="tag-row">${p.stack.map(s=>`<span class="tag">${s}</span>`).join('')}</div>
-      <ul class="feat-list">${p.features.map(f=>`<li>${f}</li>`).join('')}</ul>
       <div class="project-actions">
         <a href="${p.github}" target="_blank" rel="noopener" class="btn btn-sm">GitHub</a>
-        ${p.demo && p.demo !== '#' ? `<a href="${p.demo}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Live Demo</a>` : ''}
       </div>
     </div>
   </div>`).join('');
