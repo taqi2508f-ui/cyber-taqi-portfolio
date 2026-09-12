@@ -523,12 +523,8 @@ const projects = [
   {
     name:'Network-Security-Audit-Tool',
     desc:'This tool only scans networks, IP addresses, and open ports to surface vulnerabilities on systems you own or are explicitly authorized to test. Unauthorized scanning is illegal in most countries.',
-    github:'https://github.com/taqi2508f-ui/Network-Security-Audit-Tool'
-  },
-  {
-    name:'Network-Security-Audit-101',
-    desc:'Companion GitHub Pages site for the Network Security Audit Tool.',
-    github:'https://github.com/taqi2508f-ui/Network-Security-Audit-101'
+    github:'https://github.com/taqi2508f-ui/Network-Security-Audit-Tool',
+    demo:'https://taqi2508f-ui.github.io/Network-Security-Audit-101/'
   }
 ];
 function circuitSVG(seed){
@@ -553,6 +549,7 @@ document.getElementById('projectsGrid').innerHTML = projects.map(p=>`
       <p>${p.desc}</p>
       <div class="project-actions">
         <a href="${p.github}" target="_blank" rel="noopener" class="btn btn-sm">GitHub</a>
+        ${p.demo ? `<a href="${p.demo}" target="_blank" rel="noopener" class="btn btn-sm btn-primary">Live Demo</a>` : ''}
       </div>
     </div>
   </div>`).join('');
@@ -600,7 +597,6 @@ const repos = [
   ['cyber-taqi-portfolio','Cybersecurity portfolio — red-ops/crimson themed site showcasing security research, tooling, and consulting work under CYBER-TAQI.','JavaScript'],
   ['EAGLE-SEC-PRO-ENCHANCED','This is a legitimate-looking pentesting tool (a Burp Suite–style intercepting proxy)','Python'],
   ['FVO-ORACLE','FVO — Eagle Vulnerability Oracle: a custom Python/Tkinter vulnerability scanner with a nmap-free, socket-based scanning engine and AI-powered exploit/defense analysis via Groq\'s GPT-OSS 120B.','Python'],
-  ['Network-Security-Audit-101','Companion GitHub Pages site for the Network Security Audit Tool.','HTML'],
   ['Network-Security-Audit-Tool','This tool only scans networks, IP addresses, and open ports to surface vulnerabilities on systems you own or are explicitly authorized to test. Unauthorized scanning is illegal in most countries.','Python']
 ];
 document.getElementById('repoGrid').innerHTML = repos.map(([n,d,l])=>`
@@ -609,7 +605,7 @@ document.getElementById('repoGrid').innerHTML = repos.map(([n,d,l])=>`
     <p>${d}</p>
     <div class="meta"><span>● ${l}</span><span>public</span></div>
   </div>`).join('');
-document.getElementById('ghRepos').textContent = '7';
+document.getElementById('ghRepos').textContent = '6';
 document.getElementById('contribGraph').innerHTML = Array.from({length:130}, ()=>{
   const r = Math.random();
   const op = r>0.85?1:r>0.6?0.6:r>0.35?0.3:0.08;
