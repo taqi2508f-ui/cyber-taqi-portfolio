@@ -115,8 +115,8 @@ const bootLines = [
   {t:'[OK] scanning toolkit ...... ready', c:'ok'},
   {t:'$ mounting projects/ ...', c:'dim'},
   {t:'  > network_audit.py', c:'ok'},
-  {t:'  > eagle-vulnerability-oracle', c:'ok'},
-  {t:'  > security-monitor', c:'ok'},
+  {t:'  > FVO-ORACLE', c:'ok'},
+  {t:'  > CCIT', c:'ok'},
   {t:'$ status: operator online. accepting connections_', c:'prompt'}
 ];
 const termBody = document.getElementById('terminalBody');
@@ -583,7 +583,7 @@ const timeline = [
   ['Building Security Tools','Network audit tools, vulnerability scanners, and monitoring dashboards, shipped.','active'],
   ['Professional Experience','Working as an Assistant Account Officer (The Professionals Custom Clearing Agent, Karachi) while studying cybersecurity, Python, and Linux part-time.','active'],
   ['Freelancing','Taking on real client work under the Cyber Taqi brand.','active'],
-  ['Current Projects','Eagle-AI, Eagle Vulnerability Oracle, and this portfolio.','active'],
+  ['Current Projects','FVO-ORACLE, CCIT, and this portfolio.','active'],
   ['Future Goals','Formal certifications and deeper offensive/defensive specialization.','pending']
 ];
 document.getElementById('timelineList').innerHTML = timeline.map(([t,d,s])=>`
@@ -596,9 +596,12 @@ document.getElementById('timelineList').innerHTML = timeline.map(([t,d,s])=>`
 
 /* ---------------- Data: GitHub repos ---------------- */
 const repos = [
-  ['Network-Security-Audit-101','Python network security audit tool + GitHub Pages preview site.','Python'],
-  ['eagle-vulnerability-oracle','Custom vulnerability scanner with local AI-assisted analysis.','Python'],
-  ['security-monitor','Cyberpunk-themed desktop security monitoring app.','Python']
+  ['CCIT','A Python desktop cybersecurity suite with a dark neon hacker UI — phishing/URL scanning, email header & spoofing detection, static malware analysis, live network/DNS monitoring, and a YARA-like sig…','Python'],
+  ['cyber-taqi-portfolio','Cybersecurity portfolio — red-ops/crimson themed site showcasing security research, tooling, and consulting work under CYBER-TAQI.','JavaScript'],
+  ['EAGLE-SEC-PRO-ENCHANCED','This is a legitimate-looking pentesting tool (a Burp Suite–style intercepting proxy)','Python'],
+  ['FVO-ORACLE','FVO — Eagle Vulnerability Oracle: a custom Python/Tkinter vulnerability scanner with a nmap-free, socket-based scanning engine and AI-powered exploit/defense analysis via Groq\'s GPT-OSS 120B.','Python'],
+  ['Network-Security-Audit-101','Companion GitHub Pages site for the Network Security Audit Tool.','HTML'],
+  ['Network-Security-Audit-Tool','This tool only scans networks, IP addresses, and open ports to surface vulnerabilities on systems you own or are explicitly authorized to test. Unauthorized scanning is illegal in most countries.','Python']
 ];
 document.getElementById('repoGrid').innerHTML = repos.map(([n,d,l])=>`
   <div class="panel repo-card reveal">
@@ -606,7 +609,7 @@ document.getElementById('repoGrid').innerHTML = repos.map(([n,d,l])=>`
     <p>${d}</p>
     <div class="meta"><span>● ${l}</span><span>public</span></div>
   </div>`).join('');
-document.getElementById('ghRepos').textContent = repos.length + '+';
+document.getElementById('ghRepos').textContent = '7';
 document.getElementById('contribGraph').innerHTML = Array.from({length:130}, ()=>{
   const r = Math.random();
   const op = r>0.85?1:r>0.6?0.6:r>0.35?0.3:0.08;
