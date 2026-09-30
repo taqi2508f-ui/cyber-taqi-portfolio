@@ -581,17 +581,17 @@ const timeline = [
   ['Applied Cybersecurity','OWASP Top 10, threat analysis, and security best practices applied in real builds.','done'],
   ['Independent Security Training','Structured study of cyber threats, vulnerabilities, malware, phishing, and incident response via TryHackMe, Udemy, and hands-on labs.','done'],
   ['Building Security Tools','Network audit tools, vulnerability scanners, and monitoring dashboards, shipped.','active'],
-  ['Professional Experience','Working as an Assistant Account Officer (The Professionals Custom Clearing Agent, Karachi) while studying cybersecurity, Python, and Linux part-time.','active'],
+  ['Professional Experience','Building Cyber Taqi, my cybersecurity brand, and sharing project updates on Instagram.','active','https://www.instagram.com/cyber_taqi/'],
   ['Freelancing','Taking on real client work under the Cyber Taqi brand.','active'],
   ['Current Projects','FVO-ORACLE, CCIT, and this portfolio.','active'],
   ['Future Goals','Formal certifications and deeper offensive/defensive specialization.','pending']
 ];
-document.getElementById('timelineList').innerHTML = timeline.map(([t,d,s])=>`
+document.getElementById('timelineList').innerHTML = timeline.map(([t,d,s,link])=>`
   <div class="t-item ${s==='done'?'done':''} reveal">
     <div class="dot"></div>
     <div class="status">${s === 'done' ? 'Completed' : s === 'active' ? 'In Progress' : 'Upcoming'}</div>
     <h4>${t}</h4>
-    <p>${d}</p>
+    <p>${d}${link ? ` <a href="${link}" target="_blank" rel="noopener noreferrer">Instagram: @cyber_taqi ↗</a>` : ''}</p>
   </div>`).join('');
 
 /* ---------------- Data: GitHub repos ---------------- */
