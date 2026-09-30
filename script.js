@@ -508,17 +508,20 @@ const projects = [
   {
     name:'CCIT',
     desc:'A Python desktop cybersecurity suite with a dark neon hacker UI — phishing/URL scanning, email header & spoofing detection, static malware analysis, live network/DNS monitoring, and a YARA-like signature engine.',
-    github:'https://github.com/taqi2508f-ui/CCIT'
+    github:'https://github.com/taqi2508f-ui/CCIT',
+    demo:'demos/ccit.html'
   },
   {
     name:'FVO-ORACLE',
     desc:'Eagle Vulnerability Oracle — a custom Python/Tkinter vulnerability scanner with a nmap-free, socket-based scanning engine and AI-powered exploit/defense analysis via Groq\'s GPT-OSS 120B.',
-    github:'https://github.com/taqi2508f-ui/FVO-ORACLE'
+    github:'https://github.com/taqi2508f-ui/FVO-ORACLE',
+    demo:'demos/fvo-oracle.html'
   },
   {
     name:'EAGLE-SEC-PRO-ENCHANCED',
     desc:'A legitimate-looking pentesting tool — a Burp Suite–style intercepting proxy for authorized web application security testing.',
-    github:'https://github.com/taqi2508f-ui/EAGLE-SEC-PRO-ENCHANCED'
+    github:'https://github.com/taqi2508f-ui/EAGLE-SEC-PRO-ENCHANCED',
+    demo:'demos/eagle-sec-pro.html'
   },
   {
     name:'Network-Security-Audit-Tool',
