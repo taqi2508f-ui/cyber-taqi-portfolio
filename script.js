@@ -506,6 +506,12 @@ document.getElementById('servicesGrid').innerHTML = services.map(([n,t,d])=>`
 /* ---------------- Data: Projects (mirrors GitHub repos) ---------------- */
 const projects = [
   {
+    name:'CYBERCRAFT-LEARNING-LAB',
+    desc:'An offline cybersecurity training game with seven interactive lessons. Explore a 3D operations floor, inspect live equipment, and learn incident triage and containment step by step.',
+    demo:'https://taqi2508f-ui.github.io/Cybercraft/',
+    demoLabel:'Play Now'
+  },
+  {
     name:'CCIT',
     desc:'A Python desktop cybersecurity suite with a dark neon hacker UI — phishing/URL scanning, email header & spoofing detection, static malware analysis, live network/DNS monitoring, and a YARA-like signature engine.',
     github:'https://github.com/taqi2508f-ui/CCIT',
@@ -551,8 +557,8 @@ document.getElementById('projectsGrid').innerHTML = projects.map(p=>`
       <h3>${p.name}</h3>
       <p>${p.desc}</p>
       <div class="project-actions">
-        <a href="${p.github}" target="_blank" rel="noopener" class="btn btn-sm">GitHub</a>
-        ${p.demo ? `<a href="${p.demo}" target="_blank" rel="noopener" class="btn btn-sm btn-primary">Live Demo</a>` : ''}
+        ${p.github ? `<a href="${p.github}" target="_blank" rel="noopener" class="btn btn-sm">GitHub</a>` : ''}
+        ${p.demo ? `<a href="${p.demo}" target="_blank" rel="noopener" class="btn btn-sm btn-primary">${p.demoLabel || 'Live Demo'}</a>` : ''}
       </div>
     </div>
   </div>`).join('');
