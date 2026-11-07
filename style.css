@@ -870,3 +870,83 @@ h1,h2,h3,h4,p,li,a,.repo-card h4,.repo-card h3{ overflow-wrap:anywhere; }
   .project-thumb{ height:120px; }
   .tool-card{ min-height:0; }
 }
+
+/* ==========================================================================
+   PHONE = LAPTOP-STYLE LAYOUT (multi-column cards, no zooming needed)
+   ========================================================================== */
+@media (max-width:600px){
+  html{ font-size:15px; }
+  .wrap{ padding-left:max(12px,env(safe-area-inset-left)); padding-right:max(12px,env(safe-area-inset-right)); }
+  section{ padding:44px 0; }
+  .section-head{ margin-bottom:22px; }
+  .section-head h2{ font-size:1.6rem; }
+  .section-head p{ font-size:.85rem; }
+
+  /* cards in columns like the laptop */
+  .grid{ gap:10px; }
+  .grid-3,.grid-4,#whyGrid,#projectsGrid,#blogGrid,#repoGrid,#certGrid,.isz-pages{ grid-template-columns:repeat(2,minmax(0,1fr)) !important; gap:10px; }
+  #toolsGrid{ grid-template-columns:repeat(3,minmax(0,1fr)) !important; gap:8px; }
+  .grid-2.infosnifz-grid,.about .wrap{ grid-template-columns:1fr; }
+
+  .panel{ padding:12px; border-radius:14px; }
+  .panel h3,.panel h4{ font-size:.82rem; margin-bottom:.3em; }
+  .panel p{ font-size:.72rem; line-height:1.45; }
+
+  /* tools: 3 per row */
+  .tool-card{ padding:10px 4px; }
+  .tool-card .icon{ width:32px; height:32px; font-size:.7rem; margin-bottom:6px; }
+  .tool-card h4{ font-size:.7rem; }
+  .tool-card small{ font-size:.58rem; }
+
+  /* services / why */
+  .service-card,.why-card{ padding:12px; }
+  .why-card .icon{ width:30px; height:30px; margin-bottom:8px; }
+
+  /* projects: 2 per row, compact */
+  .project-thumb{ height:70px; }
+  .project-thumb span{ font-size:.55rem; text-align:center; padding:0 6px; }
+  .project-body{ padding:10px; gap:6px; }
+  .project-body h3{ font-size:.78rem; }
+  .project-body p{ font-size:.68rem; line-height:1.4; display:-webkit-box; -webkit-line-clamp:5; -webkit-box-orient:vertical; overflow:hidden; }
+  .project-actions{ grid-template-columns:1fr !important; gap:6px; }
+  .project-actions .btn{ padding:8px 6px; font-size:.6rem; min-height:34px; }
+
+  /* certs, repos, blog */
+  .cert-body{ padding:10px; }
+  .cert-body h3{ font-size:.76rem; }
+  .cert-body p{ font-size:.66rem; margin-bottom:8px; }
+  .cert-meta{ font-size:.55rem; }
+  .repo-card{ padding:10px; }
+  .repo-card h3,.repo-card h4{ font-size:.76rem; }
+  .repo-card p{ font-size:.66rem; }
+  .blog-card{ padding:12px; }
+  .blog-card h3,.blog-card h4{ font-size:.8rem; }
+  .blog-card p{ font-size:.68rem; }
+
+  /* github stats: 3 across */
+  .gh-stats{ grid-template-columns:repeat(3,minmax(0,1fr)) !important; gap:8px; }
+  .gh-stats .stat{ padding:10px; }
+  .gh-stats .stat b{ font-size:1.05rem; }
+  .gh-stats .stat span{ font-size:.55rem; }
+  .gh-stats .stat:last-child:nth-child(odd){ grid-column:auto; }
+
+  /* infosnifz page boxes */
+  .isz-pages .panel{ padding:10px; }
+
+  /* hero: keep copy readable, logo smaller */
+  .hero{ padding:44px 0 36px; }
+  .hero-logo{ max-width:200px; }
+  .hero-actions{ grid-template-columns:repeat(2,1fr); gap:8px; }
+  .hero-actions .btn{ padding:11px 8px; font-size:.66rem; }
+}
+@media (max-width:380px){
+  #toolsGrid{ grid-template-columns:repeat(3,minmax(0,1fr)) !important; }
+  .project-actions{ grid-template-columns:1fr !important; }
+  .gh-stats{ grid-template-columns:repeat(3,minmax(0,1fr)) !important; }
+}
+@media (max-width:600px){
+  #skillsGrid{ grid-template-columns:1fr !important; }
+  .skill-list{ display:grid; grid-template-columns:1fr 1fr; gap:10px 14px; }
+  .skill-item .top{ font-size:.68rem; margin-bottom:4px; }
+  .skill-cat h3{ font-size:.9rem; margin-bottom:10px; }
+}
