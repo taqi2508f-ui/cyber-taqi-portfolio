@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0a0505">
 <title>Muhammad Taqi | Cyber Taqi — Cybersecurity Analyst &amp; Offensive/Defensive Hacker</title>
 <meta name="description" content="Muhammad Taqi (Cyber Taqi) — Cybersecurity Analyst, Offensive/Defensive Hacker &amp; Security Researcher. Freelance vulnerability assessments, network security reviews and custom Python security tooling.">
 <meta name="theme-color" content="#04070c">
@@ -14,15 +15,18 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Rajdhani:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <!-- boot loader (skipped for prefers-reduced-motion) -->
 <div class="boot-loader" id="bootLoader">
-  <div class="boot-loader-inner mono">
-    <div class="boot-log" id="bootLog"></div>
+  <div class="boot-loader-inner">
+    <div class="boot-logo" role="img" aria-label="Cyber Taqi logo">
+      <img class="boot-ring" src="assets/logo-ring.png" alt="">
+      <img class="boot-core" src="assets/logo-core.png" alt="">
+    </div>
     <div class="boot-bar"><span id="bootBarFill"></span></div>
   </div>
 </div>
@@ -39,33 +43,32 @@
       <span class="brand-mark"><img src="assets/cyber-taqi-crest.png" alt="Cyber Taqi crest" width="32" height="32"></span>
       CYBER&nbsp;TAQI
     </a>
-    <nav class="nav-links">
+    <nav class="nav-links" id="navLinks">
       <a href="#home">home</a>
       <a href="#about">about</a>
       <a href="#skills">skills</a>
       <a href="#services">services</a>
       <a href="#projects">projects</a>
       <a href="#experience">experience</a>
+      <a href="#certifications">certs</a>
       <a href="#blog">blog</a>
       <a href="#contact">contact</a>
     </nav>
     <div class="nav-cta">
       <a href="#contact" class="btn btn-primary btn-sm">Hire Me</a>
     </div>
-    <button class="burger btn btn-ghost btn-sm" id="burgerBtn">☰</button>
+    <button class="burger btn btn-ghost btn-sm" id="burgerBtn" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">☰</button>
   </div>
 </header>
 
 <!-- ================= HUD STATUS STRIP ================= -->
 <div class="hud-strip">
   <div class="wrap">
-    <span><span class="hud-dot"></span>STATUS: <b>ONLINE</b></span>
+    <span><span class="hud-dot"></span>STATUS: <b>AVAILABLE FOR FREELANCE WORK</b></span>
+    <span>BASED IN: <b>KARACHI, PAKISTAN</b></span>
     <span>OPERATOR: <b>M.TAQI</b></span>
-    <span>NODE: <b id="hudNode">KARACHI-SOC-01</b></span>
-    <span>UPTIME: <b id="hudUptime">00:00:00</b></span>
-    <span>THREAT LEVEL: <b style="color:var(--green)">LOW</b></span>
-    <span>THREATS BLOCKED: <b class="live-count mono" id="hudThreats">000000</b></span>
-    <span>MODE: <b>DEFENSIVE | OFFENSIVE / RESEARCH </b></span>
+    <span>FOCUS: <b>VULNERABILITY ASSESSMENT | NETWORK AUDITS | OSINT | PYTHON TOOLS</b></span>
+    <span>CONTACT: <b><a href="mailto:m.taqi11051214@gmail.com" style="color:inherit;">m.taqi11051214@gmail.com</a></b></span>
   </div>
 </div>
 
@@ -261,6 +264,46 @@
     </div>
   </section>
 
+  <!-- ================= INFOSNIFZ ================= -->
+  <section id="infosnifz">
+    <div class="wrap">
+      <div class="grid grid-2 infosnifz-grid" style="align-items:center;">
+        <div class="reveal">
+          <div class="eyebrow">// live platform</div>
+          <h2>InfoSnifz — My Cybersecurity Services Website</h2>
+          <p class="isz-tag">“We Investigate, Detect &amp; Navigate to Protect Against Hidden Digital Threats.”</p>
+          <p>InfoSnifz is my cybersecurity services brand. We help businesses, startups and individuals find weak points before attackers do — through vulnerability assessments, network security audits and OSINT investigations — and build custom Python security tools and data-extraction solutions around each client’s needs. Every engagement ends with clear findings and practical steps to fix them, so you know exactly where you stand and how to stay protected.</p>
+          <div class="avail-grid">
+            <span class="avail-chip">Vulnerability Assessment</span>
+            <span class="avail-chip">Network Security Audit</span>
+            <span class="avail-chip">OSINT &amp; Recon</span>
+            <span class="avail-chip">Python Security Utilities</span>
+            <span class="avail-chip">Web Scraping &amp; Data Extraction</span>
+          </div>
+          <div class="hero-actions" style="margin-top:28px;">
+            <a href="https://infosnifz.site.je/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit InfoSnifz ↗</a>
+            <a href="#contact" class="btn btn-ghost">Hire me</a>
+          </div>
+        </div>
+        <div class="reveal">
+          <div class="panel isz-browser">
+            <div class="terminal-head"><i class="tdot r"></i><i class="tdot y"></i><i class="tdot g"></i><span>infosnifz.site.je</span></div>
+            <img src="assets/infosnifz.png" alt="InfoSnifz website preview" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="isz-fallback">
+              <img class="isz-logo-img" src="assets/infosnifz-logo.png" alt="InfoSnifz logo">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="isz-pages reveal">
+        <div class="panel"><h4>Home</h4><p>The front door of the site: my tagline and the services shown as neon boxes, so visitors see what I offer straight away.</p></div>
+        <div class="panel"><h4>Services</h4><p>Every service explained on its own, with a request option so clients can tell me what they need and their budget.</p></div>
+        <div class="panel"><h4>Case Studies</h4><p>Real examples of the security work I deliver and the results it brings to clients.</p></div>
+        <div class="panel"><h4>About</h4><p>Who I am, my skills and how I work as an independent cybersecurity professional.</p></div>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= WHY CHOOSE ME ================= -->
   <section id="why">
     <div class="wrap">
@@ -281,6 +324,18 @@
         <p>What's actually been built and delivered under the Cyber Taqi brand.</p>
       </div>
       <div class="timeline" id="timelineList"></div>
+    </div>
+  </section>
+
+  <!-- ================= CERTIFICATIONS ================= -->
+  <section id="certifications">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">// 09 — credentials</div>
+        <h2>Certifications</h2>
+        <p>Verified training and credentials. Click any certificate to view it full size.</p>
+      </div>
+      <div class="grid grid-3" id="certGrid"></div>
     </div>
   </section>
 
@@ -327,10 +382,8 @@
         <div class="row"><span>Phone</span><b>+92 332 2094019</b></div>
         <div class="social-grid">
           <a class="social-btn" href="https://github.com/taqi2508f-ui" target="_blank" rel="noopener" title="GitHub — @taqi2508f-ui" aria-label="GitHub">GH</a>
-          <a class="social-btn" href="#" title="LinkedIn — @cyber-taqi" aria-label="LinkedIn">in</a>
+          <a class="social-btn" href="https://www.linkedin.com/in/muhammad-taqi-mukadam/" target="_blank" rel="noopener noreferrer" title="LinkedIn — Muhammad Taqi Mukadam" aria-label="LinkedIn">in</a>
           <a class="social-btn" href="https://instagram.com/cyber_taqi" target="_blank" rel="noopener" title="Instagram — @cyber_taqi" aria-label="Instagram">IG</a>
-          <a class="social-btn" href="#" title="Facebook — @cyber-taqi" aria-label="Facebook">FB</a>
-          <a class="social-btn" href="#" title="X — @cyber-taqi" aria-label="X">X</a>
           <a class="social-btn" href="mailto:m.taqi11051214@gmail.com" title="Email" aria-label="Email">@</a>
         </div>
       </div>
@@ -339,6 +392,7 @@
         <div class="field"><label for="cf-email">Email</label><input id="cf-email" name="email" type="email" placeholder="you@example.com" required></div>
         <div class="field"><label for="cf-subject">Subject</label><input id="cf-subject" name="subject" type="text" placeholder="What's this about?" required></div>
         <div class="field"><label for="cf-message">Message</label><textarea id="cf-message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea></div>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;height:0;width:0;opacity:0;">
         <button type="submit" class="btn btn-primary btn-block">Send Message</button>
         <p id="formNote" class="mono" style="font-size:.72rem;color:var(--text-faint);margin:12px 0 0;"></p>
       </form>
@@ -364,6 +418,15 @@
 </footer>
 
 <button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+
+<!-- certificate lightbox -->
+<div class="cert-lightbox" id="certLightbox" aria-hidden="true">
+  <button class="cert-close" id="certClose" aria-label="Close">✕</button>
+  <figure>
+    <img id="certLbImg" alt="">
+    <figcaption id="certLbCap" class="mono"></figcaption>
+  </figure>
+</div>
 
 <script src="script.js"></script>
 </body>

@@ -28,46 +28,31 @@ window.addEventListener('load', ()=>{
   });
 });
 
-/* ---------------- Boot loader ---------------- */
+/* ---------------- Boot loader (logo + progress bar) ---------------- */
 (function boot(){
   const overlay = document.getElementById('bootLoader');
-  const log = document.getElementById('bootLog');
   const fill = document.getElementById('bootBarFill');
   if(reduceMotion){ overlay.classList.add('hide'); return; }
 
   document.body.classList.add('loading');
-  const lines = [
-    'booting cyber-taqi-os ...',
-    'establishing secure session ...',
-    'loading operator: MUHAMMAD TAQI',
-    'decrypting portfolio assets ...',
-    'access granted.'
-  ];
-  let i = 0, pct = 0;
-  function step(){
-    if(i < lines.length){
-      const d = document.createElement('div');
-      d.textContent = '> ' + lines[i];
-      d.style.animationDelay = '0ms';
-      log.appendChild(d);
-      i++;
-      pct = Math.min(100, Math.round((i/lines.length)*100));
-      fill.style.width = pct + '%';
-      setTimeout(step, 260);
-    } else {
-      setTimeout(()=>{
-        overlay.classList.add('hide');
-        document.body.classList.remove('loading');
-        const h1 = document.querySelector('.glitch');
-        if(h1){ h1.classList.add('play'); }
-        const heroCopy = document.getElementById('heroCopy');
-        if(heroCopy){ heroCopy.classList.add('play'); }
-        const terminal = document.querySelector('.terminal');
-        if(terminal){ terminal.classList.add('in'); }
-      }, 320);
-    }
+  const DURATION = 2400; // ms the logo stays on screen
+  const t0 = performance.now();
+  function tick(now){
+    const p = Math.min(1, (now - t0) / DURATION);
+    fill.style.width = Math.round(p * 100) + '%';
+    if(p < 1){ requestAnimationFrame(tick); return; }
+    setTimeout(()=>{
+      overlay.classList.add('hide');
+      document.body.classList.remove('loading');
+      const h1 = document.querySelector('.glitch');
+      if(h1){ h1.classList.add('play'); }
+      const heroCopy = document.getElementById('heroCopy');
+      if(heroCopy){ heroCopy.classList.add('play'); }
+      const terminal = document.querySelector('.terminal');
+      if(terminal){ terminal.classList.add('in'); }
+    }, 250);
   }
-  step();
+  requestAnimationFrame(tick);
 })();
 
 /* ---------------- Scroll progress bar ---------------- */
@@ -356,30 +341,6 @@ if(canvas){
   draw();
 })();
 
-/* ---------------- HUD uptime counter ---------------- */
-const startTime = Date.now();
-function pad(n){ return n.toString().padStart(2,'0'); }
-setInterval(()=>{
-  const diff = Math.floor((Date.now()-startTime)/1000);
-  const h = pad(Math.floor(diff/3600));
-  const m = pad(Math.floor((diff%3600)/60));
-  const s = pad(diff%60);
-  const el = document.getElementById('hudUptime');
-  if(el) el.textContent = `${h}:${m}:${s}`;
-}, 1000);
-
-/* ---------------- HUD live threat counter ---------------- */
-(function(){
-  const el = document.getElementById('hudThreats');
-  if(!el) return;
-  let n = 128300 + Math.floor(Math.random()*4000);
-  el.textContent = String(n).padStart(6,'0');
-  setInterval(()=>{
-    n += Math.floor(Math.random()*3);
-    el.textContent = String(n).padStart(6,'0');
-  }, 1400 + Math.random()*1200);
-})();
-
 /* ---------------- Ripple feedback on tap/click (all devices) ---------------- */
 document.addEventListener('click', (e)=>{
   const target = e.target.closest('.btn, .social-btn');
@@ -600,6 +561,42 @@ document.getElementById('timelineList').innerHTML = timeline.map(([t,d,s,link])=
     <p>${d}${link ? ` <a href="${link}" target="_blank" rel="noopener noreferrer">Instagram: @cyber_taqi ↗</a>` : ''}</p>
   </div>`).join('');
 
+/* ---------------- Data: Certifications ----------------
+   HOW TO ADD A CERTIFICATE:
+   1. Put the image in  assets/certs/  (e.g. assets/certs/ceh.jpg)
+   2. Add a line below:  [title, issuer, date, description, image, credentialUrl]
+   Leave image '' to show a placeholder; credentialUrl '' hides the verify link. */
+const certs = [
+  // ['Certificate Title','Issuer','Mon YYYY','Short description of what it covers.','assets/certs/example.jpg','https://verify-link'],
+  ['Developing Ethical Hacking Tools with Python','LinkedIn Learning','Nov 2026','Course completed (1h 12m). Building ethical hacking tools in Python. Top skills: Ethical Hacking, Python.','assets/certs/ethical-hacking-tools-python.png',''],
+  ['Networking Foundations: Networking Basics','LinkedIn Learning','Nov 2026','Course completed (1h 49m). Core networking concepts and fundamentals. Top skill: Network Administration.','assets/certs/networking-foundations.png',''],
+];
+const certGrid = document.getElementById('certGrid');
+const certsToShow = certs.length ? certs : [['Your Certificate Title','Issuer','Date','Add your certificate image and description in script.js (certs array).','','']];
+certGrid.innerHTML = certsToShow.map(([t,iss,date,d,img,url],i)=>`
+  <div class="panel cert-card reveal">
+    ${img ? `<button class="cert-img" data-i="${i}" aria-label="View ${t}"><img src="${img}" alt="${t} certificate" loading="lazy"></button>`
+          : `<div class="cert-img empty"><b>＋</b>Certificate image</div>`}
+    <div class="cert-body">
+      <div class="cert-meta">${iss} · ${date}</div>
+      <h3>${t}</h3>
+      <p>${d}</p>
+      ${url ? `<a href="${url}" target="_blank" rel="noopener noreferrer" class="mono">Verify credential ↗</a>` : ''}
+    </div>
+  </div>`).join('');
+const certLb = document.getElementById('certLightbox');
+const closeCertLb = ()=>{ certLb.classList.remove('open'); certLb.setAttribute('aria-hidden','true'); };
+certGrid.addEventListener('click', e=>{
+  const b = e.target.closest('.cert-img[data-i]'); if(!b) return;
+  const c = certs[+b.dataset.i];
+  document.getElementById('certLbImg').src = c[4];
+  document.getElementById('certLbImg').alt = c[0];
+  document.getElementById('certLbCap').textContent = c[0] + ' — ' + c[1] + ' · ' + c[2];
+  certLb.classList.add('open'); certLb.setAttribute('aria-hidden','false');
+});
+certLb.addEventListener('click', e=>{ if(e.target !== document.getElementById('certLbImg')) closeCertLb(); });
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeCertLb(); });
+
 /* ---------------- Data: GitHub repos ---------------- */
 const repos = [
   ['CCIT','A Python desktop cybersecurity suite with a dark neon hacker UI — phishing/URL scanning, email header & spoofing detection, static malware analysis, live network/DNS monitoring, and a YARA-like sig…','Python'],
@@ -776,18 +773,48 @@ window.addEventListener('resize', ()=>{
 });
 document.getElementById('toTop').addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
 
-/* ---------------- Contact form (no backend — local demo) ---------------- */
-document.getElementById('contactForm').addEventListener('submit', function(e){
+/* ---------------- Contact form ----------------
+   Works out of the box: opens the visitor's email app with the message ready to send to you.
+   To receive messages directly (no email app needed): create a free form at formspree.io,
+   then paste its URL below, e.g. 'https://formspree.io/f/xxxxxxxx' */
+const CONTACT_EMAIL = 'm.taqi11051214@gmail.com';
+const FORM_ENDPOINT = '';
+document.getElementById('contactForm').addEventListener('submit', async function(e){
   e.preventDefault();
   const note = document.getElementById('formNote');
-  note.textContent = '$ message queued — this form is a front-end demo, connect it to your own backend or mailto to go live.';
-  this.reset();
+  const f = Object.fromEntries(new FormData(this).entries());
+  if (f.website) return; // honeypot: bots fill this hidden field
+  if (FORM_ENDPOINT) {
+    const btn = this.querySelector('button[type=submit]');
+    btn.disabled = true; note.textContent = '$ sending...';
+    try {
+      const r = await fetch(FORM_ENDPOINT, { method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'}, body:JSON.stringify(f) });
+      if (!r.ok) throw new Error();
+      note.textContent = '$ message sent — I will get back to you soon.';
+      this.reset();
+    } catch (_) {
+      note.textContent = '$ could not send. Please email me directly at ' + CONTACT_EMAIL;
+    }
+    btn.disabled = false;
+  } else {
+    const body = 'Name: ' + f.name + '\nEmail: ' + f.email + '\n\n' + f.message;
+    window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent(f.subject) + '&body=' + encodeURIComponent(body);
+    note.textContent = '$ opening your email app — press send there to deliver the message.';
+  }
 });
 
 
-/* ---------------- Burger (mobile) ---------------- */
-document.getElementById('burgerBtn').addEventListener('click', ()=>{
-  const nav = document.querySelector('.nav-links');
-  const open = nav.style.display === 'flex';
-  nav.style.cssText = open ? '' : 'display:flex;position:fixed;top:64px;left:0;right:0;flex-direction:column;background:rgba(5,9,15,0.98);padding:18px 28px;border-bottom:1px solid var(--line);';
-});
+/* ---------------- Burger (mobile / tablet menu) ---------------- */
+(function(){
+  const btn = document.getElementById('burgerBtn');
+  const nav = document.getElementById('navLinks');
+  function setOpen(o){
+    nav.classList.toggle('open', o);
+    btn.setAttribute('aria-expanded', String(o));
+    btn.textContent = o ? '✕' : '☰';
+  }
+  btn.addEventListener('click', ()=> setOpen(!nav.classList.contains('open')));
+  nav.addEventListener('click', e=>{ if(e.target.closest('a')) setOpen(false); });
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape') setOpen(false); });
+  window.addEventListener('resize', ()=>{ if(window.innerWidth > 1180) setOpen(false); });
+})();
