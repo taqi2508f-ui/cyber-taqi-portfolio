@@ -48,8 +48,8 @@ window.addEventListener('load', ()=>{
       if(h1){ h1.classList.add('play'); }
       const heroCopy = document.getElementById('heroCopy');
       if(heroCopy){ heroCopy.classList.add('play'); }
-      const terminal = document.querySelector('.terminal');
-      if(terminal){ terminal.classList.add('in'); }
+      const heroLogo = document.querySelector('.hero-logo');
+      if(heroLogo){ heroLogo.classList.add('in'); }
     }, 250);
   }
   requestAnimationFrame(tick);

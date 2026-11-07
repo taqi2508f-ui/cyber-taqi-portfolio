@@ -759,3 +759,114 @@ img,svg,video{ max-width:100%; height:auto; }
   .boot-ring{ animation:none; }
   *{ scroll-behavior:auto !important; }
 }
+
+
+/* ---------- hero logo (replaces terminal panel) ---------- */
+.hero-logo{ position:relative; display:flex; align-items:center; justify-content:center; width:100%; max-width:520px; margin-inline:auto; aspect-ratio:1/1; }
+.hero-logo-art{ position:relative; width:100%; height:100%; }
+.hero-logo-art img{ position:absolute; inset:0; width:100%; height:100%; object-fit:contain; }
+.hero-logo-ring{ animation:bootRingSpin 12s linear infinite; transform-origin:50% 50%; will-change:transform; }
+.hero-logo-core{ filter:drop-shadow(0 0 22px rgba(40,120,255,.4)); }
+.hero-logo-glow{ position:absolute; inset:12%; border-radius:50%; background:radial-gradient(circle, rgba(40,120,255,.22), transparent 70%); filter:blur(30px); pointer-events:none; }
+@media (max-width:980px){ .hero-logo{ max-width:340px; } }
+@media (prefers-reduced-motion:reduce){ .hero-logo-ring{ animation:none; } }
+
+/* ==========================================================================
+   MOBILE POLISH v4 — boxes, buttons and content tuned for phones & tablets
+   ========================================================================== */
+img,svg,video,canvas{ max-width:100%; }
+h1,h2,h3,h4,p,li,a,.repo-card h4,.repo-card h3{ overflow-wrap:anywhere; }
+
+/* tablets / large phones */
+@media (max-width:980px){
+  .project-card.panel,.cert-card.panel{ padding:0; }
+  .hero-logo{ max-width:300px; }
+  .project-actions{ flex-wrap:wrap; }
+}
+
+/* phones */
+@media (max-width:600px){
+  html{ -webkit-text-size-adjust:100%; }
+  section{ padding:56px 0; }
+  .hero{ padding:56px 0 48px; }
+  .hero .wrap{ gap:30px; }
+  .hero-tag{ font-size:.62rem; letter-spacing:.08em; padding:6px 12px; text-align:left; }
+  .hero .roles{ font-size:.88rem; min-height:1.4em; margin-bottom:16px; }
+  .hero-desc{ font-size:.96rem; margin-bottom:24px; }
+  .hero-logo{ max-width:240px; }
+
+  /* hero buttons: primary + download full width, Hire/Contact side by side */
+  .hero-actions{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  .hero-actions .btn{ flex:none; width:100%; justify-content:center; padding:13px 10px; font-size:.72rem; text-align:center; }
+  .hero-actions .btn:first-child,.hero-actions .btn:last-child{ grid-column:1 / -1; }
+
+  /* panels / cards */
+  .panel{ padding:18px; }
+  .project-card.panel,.cert-card.panel{ padding:0; }
+  .project-body{ padding:18px; gap:10px; }
+  .project-actions{ display:grid; grid-template-columns:1fr 1fr; gap:10px; width:100%; }
+  .project-actions .btn:only-child{ grid-column:1 / -1; }
+  .project-actions .btn{ width:100%; justify-content:center; }
+  .cert-body{ padding:16px 18px 18px; text-align:left; }
+  .cert-card{ text-align:left; }
+  .service-card,.why-card{ padding:18px; }
+  .section-head{ margin-bottom:28px; }
+  .section-head p{ font-size:.95rem; }
+
+  /* tools: compact 2-column tiles instead of 11 tall cards */
+  #toolsGrid{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+  .tool-card{ padding:16px 8px; }
+  .tool-card .icon{ width:40px; height:40px; margin-bottom:8px; }
+  .tool-card h4{ font-size:.82rem; }
+
+  /* skills / chips */
+  .chip,.tag,.pill{ font-size:.7rem; }
+  .about-focus{ gap:8px; }
+
+  /* infosnifz block */
+  .isz-fallback{ min-height:200px; padding:18px; }
+  .isz-tag{ font-size:.95rem; }
+  .isz-pages{ gap:12px; margin-top:32px; }
+  .isz-pages .panel{ padding:16px; }
+
+  /* github stats: tidy 2-up grid */
+  .gh-stats{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:16px 0 22px; }
+  .gh-stats .stat{ padding:16px; min-width:0; }
+  .gh-stats .stat b{ font-size:1.4rem; }
+  .gh-stats .stat span{ font-size:.7rem; }
+  .gh-stats .stat:last-child:nth-child(odd){ grid-column:1 / -1; }
+  .repo-card{ padding:16px; }
+
+  /* timeline */
+  .t-item{ padding-left:44px; }
+
+  /* contact */
+  .contact .row{ font-size:.92rem; }
+  .contact .row b,.contact .row a{ word-break:break-word; }
+  .field input,.field textarea{ padding:13px 14px; }
+  .btn-block,.contact form .btn{ width:100%; justify-content:center; }
+
+  /* footer */
+  footer{ padding:34px 0; }
+  footer .wrap{ gap:14px; }
+
+  /* lightbox + floating button */
+  .cert-lightbox{ padding:14px; }
+  .to-top{ width:42px; height:42px; }
+}
+
+/* small phones */
+@media (max-width:380px){
+  .hero h1{ font-size:clamp(2rem,10.5vw,2.6rem); }
+  .nav-cta .btn{ padding:9px 12px; }
+  .project-actions{ grid-template-columns:1fr; }
+  .gh-stats{ grid-template-columns:1fr; }
+}
+
+@media (max-width:600px){
+  /* status strip: was static, so the fixed background layer painted over its text */
+  .hud-strip{ position:relative; top:auto; z-index:5; }
+  .hud-strip .wrap{ -webkit-overflow-scrolling:touch; }
+  .project-thumb{ height:120px; }
+  .tool-card{ min-height:0; }
+}
