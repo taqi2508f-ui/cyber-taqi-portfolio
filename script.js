@@ -112,7 +112,7 @@ function bootStep(){
   const div = document.createElement('div');
   div.className = 'line ' + c;
   div.textContent = t;
-  termBody.appendChild(div);
+  if(termBody) termBody.appendChild(div);
   bootI++;
   setTimeout(bootStep, 260);
 }
@@ -137,8 +137,9 @@ if(canvas){
   let radarRunning = false, radarRafId = null;
   function draw(){
     const w = canvas.width, h = canvas.height;
+    if(w < 20 || h < 20){ if(radarRunning) radarRafId = requestAnimationFrame(draw); return; } // hidden (e.g. on phones): skip drawing
     ctx.clearRect(0,0,w,h);
-    const cx = w/2, cy = h/2, r = Math.min(w,h)/2 - 4;
+    const cx = w/2, cy = h/2, r = Math.max(1, Math.min(w,h)/2 - 4);
 
     // rings
     ctx.strokeStyle = 'rgba(255,45,64,0.18)';
@@ -818,3 +819,6 @@ document.getElementById('contactForm').addEventListener('submit', async function
   document.addEventListener('keydown', e=>{ if(e.key==='Escape') setOpen(false); });
   window.addEventListener('resize', ()=>{ if(window.innerWidth > 1180) setOpen(false); });
 })();
+
+/* script finished without errors */
+window.__ctOk = true;

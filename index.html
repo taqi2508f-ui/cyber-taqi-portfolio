@@ -88,7 +88,7 @@
         <div class="hero-actions">
           <a href="#projects" class="btn btn-primary">View Projects</a>
           <a href="#contact" class="btn">Hire Me</a>
-          <a href="#contact" class="btn btn-ghost hide-sm">Contact Me</a>
+          <a href="#contact" class="btn btn-ghost">Contact Me</a>
           <a href="assets/Muhammad-Taqi-Resume.pdf" class="btn btn-ghost" id="resumeBtn" download>Download Resume</a>
         </div>
       </div>
@@ -429,5 +429,14 @@
 </div>
 
 <script src="script.js"></script>
+<script>
+/* safety net: if anything in script.js ever fails, never leave sections invisible */
+setTimeout(function(){
+  if(window.__ctOk) return;
+  document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  var b=document.getElementById('bootLoader'); if(b) b.classList.add('hide');
+  document.body.classList.remove('loading');
+}, 3500);
+</script>
 </body>
 </html>
