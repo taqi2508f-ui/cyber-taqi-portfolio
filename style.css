@@ -759,3 +759,70 @@ img,svg,video{ max-width:100%; height:auto; }
   .boot-ring{ animation:none; }
   *{ scroll-behavior:auto !important; }
 }
+
+
+/* ==========================================================================
+   MOBILE DECLUTTER v4 — more air, bigger text, less decoration on phones
+   ========================================================================== */
+@media (max-width:600px){
+  :root{ --gap:18px; }
+  body{ font-size:16px; line-height:1.7; }
+  p{ margin-bottom:1.1em; }
+
+  /* cleaner top: brand + menu only; status strip hidden (same info is in Contact) */
+  .nav-cta{ display:none; }
+  .hud-strip{ display:none; }
+  .navbar .wrap{ justify-content:space-between; }
+
+  /* hero: headline, short intro, two clear buttons — no terminal / radar */
+  .hero{ padding:56px 0 64px; }
+  .hero .wrap{ gap:0; }
+  .terminal{ display:none; }
+  .hero-tag{ font-size:.66rem; letter-spacing:.1em; margin-bottom:20px; }
+  .hero h1{ margin-bottom:14px; }
+  .hero .roles{ font-size:.95rem; margin-bottom:18px; }
+  .hero-desc{ font-size:1rem; margin-bottom:26px; }
+  .hero-actions{ gap:12px; }
+  .hero-actions .hide-sm{ display:none; }
+
+  /* rhythm */
+  section{ padding:64px 0; }
+  .section-head{ margin-bottom:30px; }
+  .section-head p{ font-size:.98rem; }
+  .eyebrow{ font-size:.66rem; margin-bottom:10px; }
+  .panel{ padding:20px; border-radius:16px; }
+  .panel h3,.panel h4{ font-size:1.08rem; }
+  .panel p{ font-size:.96rem; }
+
+  /* readable small text (nothing under ~12px) */
+  .chip,.avail-chip{ font-size:.8rem; padding:8px 14px; }
+  .tag{ font-size:.74rem; padding:5px 10px; }
+  .about-id{ font-size:.86rem; }
+  .about-id .row{ padding:12px 0; gap:14px; }
+  .skill-item .top{ font-size:.92rem; }
+  .tool-card small,.blog-card .meta,.t-item .status{ font-size:.74rem; }
+  .tool-card h4{ font-size:.92rem; }
+  .t-item h4{ font-size:1.05rem; }
+  .t-item p,.blog-card p{ font-size:.95rem; }
+  .field label{ font-size:.76rem; }
+
+  /* tools stay as a tidy 2-column grid instead of one long column */
+  #toolsGrid{ grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+  .tool-card{ padding:18px 10px; }
+
+  /* about: keep chips from forming a wall */
+  .about-focus{ gap:8px; margin-top:18px; }
+  .about .wrap{ gap:32px; }
+
+  /* freelance / infosnifz chips: no giant wall of pills */
+  .avail-grid{ gap:10px; margin-top:20px; }
+
+  /* timeline tighter on the left */
+  .t-item{ padding-left:46px; margin-bottom:28px; }
+
+  /* contact */
+  .contact .wrap{ gap:32px; }
+  .social-btn{ width:48px; height:48px; }
+  footer{ padding:34px 0; }
+  .f-roles{ font-size:.8rem; line-height:1.6; }
+}
